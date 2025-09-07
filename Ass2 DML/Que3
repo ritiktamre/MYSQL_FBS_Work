@@ -1,0 +1,47 @@
+mysql> create table member(
+    -> member_id int primary key,
+    -> member_name varchar(30),
+    -> member_address varchar(50),
+    -> Acc_open_date Date,
+    -> Membership_type varchar(20),
+    -> fees_paid int,
+    -> Max_books_allowed int,
+    -> penalty_Amount decimal(7,2));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> desc member;
++-------------------+--------------+------+-----+---------+-------+
+| Field             | Type         | Null | Key | Default | Extra |
++-------------------+--------------+------+-----+---------+-------+
+| member_id         | int          | NO   | PRI | NULL    |       |
+| member_name       | varchar(30)  | YES  |     | NULL    |       |
+| member_address    | varchar(50)  | YES  |     | NULL    |       |
+| Acc_open_date     | date         | YES  |     | NULL    |       |
+| Membership_type   | varchar(20)  | YES  |     | NULL    |       |
+| fees_paid         | int          | YES  |     | NULL    |       |
+| Max_books_allowed | int          | YES  |     | NULL    |       |
+| penalty_Amount    | decimal(7,2) | YES  |     | NULL    |       |
++-------------------+--------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+mysql> drop table member;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| db                 |
+| details            |
+| febmarchmerged     |
+| firstbit_sql       |
+| information_schema |
+| marchfebmerged     |
+| mysql              |
+| performance_schema |
+| student            |
+| sys                |
+| temp1              |
++--------------------+
+12 rows in set (0.00 sec)

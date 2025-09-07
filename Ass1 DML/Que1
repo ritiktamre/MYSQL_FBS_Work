@@ -1,0 +1,21 @@
+mysql> create database firstbit_sql;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| db                 |
+| details            |
+| febmarchmerged     |
+| firstbit_sql       |
+| information_schema |
+| marchfebmerged     |
+| mysql              |
+| performance_schema |
+| student            |
+| sys                |
+| temp1              |
++--------------------+
+12 rows in set (0.00 sec)

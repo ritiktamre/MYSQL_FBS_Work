@@ -1,0 +1,10 @@
+Write a SQL statement to insert 3 rows by a single insert statement.
+
+ans==INSERT INTO employee (
+    emp_id, first_name, last_name, email, phone_no,
+    hire_date, job_id, salary, commision, manager_id, dept_id
+)
+VALUES
+(100, 'Ritik', 'Tamre', 'ritik@', 5151234567, '56326', 1, 24000.00, 0.00, 200, 10),
+(101, 'yogesh', 'swamiram', 'yogesh@', 5151234568, '4554327', 2, 17000.00, 0.00, 200, 10),
+(102, 'omkar', 'kalukhe', 'omkar@', 5151234569, '136521, 2, 17000.00, 0.00, 200, 10);

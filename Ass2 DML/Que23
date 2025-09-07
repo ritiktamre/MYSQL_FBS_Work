@@ -1,0 +1,57 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| db                 |
+| details            |
+| febmarchmerged     |
+| firstbit_sql       |
+| information_schema |
+| marchfebmerged     |
+| mysql              |
+| performance_schema |
+| student            |
+| sys                |
+| temp1              |
++--------------------+
+12 rows in set (0.00 sec)
+
+mysql> use firstbit_sql;
+Database changed
+mysql> show tables;
++------------------------+
+| Tables_in_firstbit_sql |
++------------------------+
+| books                  |
+| country                |
+| department             |
+| employee               |
+| job_history            |
+| jobs                   |
+| member                 |
+| member101              |
++------------------------+
+8 rows in set (0.00 sec)
+
+mysql> create table issue(
+    -> lib_issue_id int primary key,
+    -> book_no int,
+    -> member_id int,
+    -> issue_date Date,
+    -> Return_date Date,
+    -> foreign key(book_no) references books(book_no),
+    -> foreign key(member_id) references member(member_id));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc issue;
++--------------+------+------+-----+---------+-------+
+| Field        | Type | Null | Key | Default | Extra |
++--------------+------+------+-----+---------+-------+
+| lib_issue_id | int  | NO   | PRI | NULL    |       |
+| book_no      | int  | YES  | MUL | NULL    |       |
+| member_id    | int  | YES  | MUL | NULL    |       |
+| issue_date   | date | YES  |     | NULL    |       |
+| Return_date  | date | YES  |     | NULL    |       |
++--------------+------+------+-----+---------+-------+
+5 rows in set (0.00 sec)

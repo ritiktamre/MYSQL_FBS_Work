@@ -1,0 +1,74 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| db                 |
+| details            |
+| febmarchmerged     |
+| firstbit_sql       |
+| information_schema |
+| marchfebmerged     |
+| mysql              |
+| performance_schema |
+| student            |
+| sys                |
+| temp1              |
++--------------------+
+12 rows in set (0.03 sec)
+
+mysql> use firstbit_sql;
+Database changed
+mysql> show tables;
++------------------------+
+| Tables_in_firstbit_sql |
++------------------------+
+| books                  |
+| country                |
+| department             |
+| issue                  |
+| job_history            |
+| jobs                   |
+| member                 |
+| member101              |
++------------------------+
+8 rows in set (0.01 sec)
+
+mysql> alter table employee
+    -> ;
+ERROR 1146 (42S02): Table 'firstbit_sql.employee' doesn't exist
+mysql> drop table employee;
+ERROR 1051 (42S02): Unknown table 'firstbit_sql.employee'
+mysql> create table employee(
+    -> emp_id int primary key,
+    -> first_name varchar(15),
+    -> last_name varchar(15),
+    -> email varchar(30),
+    -> phone_no bigint(10),
+    -> hire_date Date,
+    -> job_id int,
+    -> salary decimal(6,2),
+    -> commision decimal(4,2),
+    -> manager_id decimal(6,0),
+    -> dept_id decimal(4,0),
+    -> foreign key (manager_id,dept_id)
+    -> references department(dept_id,manager_id));
+Query OK, 0 rows affected, 1 warning (0.09 sec)
+
+mysql> desc employee;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| emp_id     | int          | NO   | PRI | NULL    |       |
+| first_name | varchar(15)  | YES  |     | NULL    |       |
+| last_name  | varchar(15)  | YES  |     | NULL    |       |
+| email      | varchar(30)  | YES  |     | NULL    |       |
+| phone_no   | bigint       | YES  |     | NULL    |       |
+| hire_date  | date         | YES  |     | NULL    |       |
+| job_id     | int          | YES  |     | NULL    |       |
+| salary     | decimal(6,2) | YES  |     | NULL    |       |
+| commision  | decimal(4,2) | YES  |     | NULL    |       |
+| manager_id | decimal(6,0) | YES  | MUL | NULL    |       |
+| dept_id    | decimal(4,0) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+11 rows in set (0.02 sec)

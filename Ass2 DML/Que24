@@ -1,0 +1,35 @@
+mysql> insert into issue(lib_issue_id,book_no,member_id,issue_date)
+    -> values
+    -> (7002,102,2,str_to_date("10-Dec-06",'%d-%b-%y')),
+    -> (7001,101,1,str_to_date("25-Dec-06",'%d-%b-%y')),
+    -> (7003,104,1,str_to_date("15-jan-06",'%d-%b-%y')),
+    -> (7004,101,1,str_to_date("04-jul-06",'%d-%b-%y')),
+    -> (7005,104,2,str_to_date("15-Nov-06",'%d-%b-%y')),
+    -> (7006,101,3,str_to_date("18-feb-06",'%d-%b-%y'));
+Query OK, 6 rows affected (0.01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> desc issue;
++--------------+------+------+-----+---------+-------+
+| Field        | Type | Null | Key | Default | Extra |
++--------------+------+------+-----+---------+-------+
+| lib_issue_id | int  | NO   | PRI | NULL    |       |
+| book_no      | int  | YES  | MUL | NULL    |       |
+| member_id    | int  | YES  | MUL | NULL    |       |
+| issue_date   | date | YES  |     | NULL    |       |
+| Return_date  | date | YES  |     | NULL    |       |
++--------------+------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from issue;
++--------------+---------+-----------+------------+-------------+
+| lib_issue_id | book_no | member_id | issue_date | Return_date |
++--------------+---------+-----------+------------+-------------+
+|         7001 |     101 |         1 | 2006-12-25 | NULL        |
+|         7002 |     102 |         2 | 2006-12-10 | NULL        |
+|         7003 |     104 |         1 | 2006-01-15 | NULL        |
+|         7004 |     101 |         1 | 2006-07-04 | NULL        |
+|         7005 |     104 |         2 | 2006-11-15 | NULL        |
+|         7006 |     101 |         3 | 2006-02-18 | NULL        |
++--------------+---------+-----------+------------+-------------+
+6 rows in set (0.00 sec)

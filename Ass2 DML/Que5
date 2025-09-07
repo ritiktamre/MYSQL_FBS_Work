@@ -1,0 +1,37 @@
+mysql> use firstbit_sql;
+Database changed
+mysql> show tables;
++------------------------+
+| Tables_in_firstbit_sql |
++------------------------+
+| books                  |
+| country                |
+| department             |
+| employee               |
+| issue                  |
+| job_history            |
+| jobs                   |
+| member                 |
+| member101              |
++------------------------+
+9 rows in set (0.01 sec)
+
+mysql> alter table member
+    -> modify member_name varchar(30);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc member;
++-------------------+--------------+------+-----+---------+-------+
+| Field             | Type         | Null | Key | Default | Extra |
++-------------------+--------------+------+-----+---------+-------+
+| member_id         | int          | NO   | PRI | NULL    |       |
+| member_name       | varchar(30)  | YES  |     | NULL    |       |
+| member_address    | varchar(50)  | YES  |     | NULL    |       |
+| aac_open_date     | date         | YES  |     | NULL    |       |
+| membership_type   | varchar(20)  | YES  |     | NULL    |       |
+| fees_paid         | int          | YES  |     | NULL    |       |
+| max_books_allowed | int          | YES  |     | NULL    |       |
+| penalty_amount    | decimal(7,2) | YES  |     | NULL    |       |
++-------------------+--------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
