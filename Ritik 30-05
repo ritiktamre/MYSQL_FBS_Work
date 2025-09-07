@@ -1,0 +1,302 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 60
+Server version: 8.0.32 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database Febbatch;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| db                 |
+| details            |
+| febbatch           |
+| febmarchmerged     |
+| information_schema |
+| marchfebmerged     |
+| mysql              |
+| performance_schema |
+| student            |
+| sys                |
+| temp1              |
++--------------------+
+12 rows in set (0.01 sec)
+
+mysql> use febbatch;
+Database changed
+mysql> show tables;
+Empty set (0.01 sec)
+
+mysql> create table employee(
+    -> id int ,
+    -> name varchar(25),
+    -> salary decimal(7,2));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_febbatch |
++--------------------+
+| employee           |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> desc employee;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| id     | int          | YES  |     | NULL    |       |
+| name   | varchar(25)  | YES  |     | NULL    |       |
+| salary | decimal(7,2) | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table employee
+    -> add column email_id varchar(25) not null;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| id       | int          | YES  |     | NULL    |       |
+| name     | varchar(25)  | YES  |     | NULL    |       |
+| salary   | decimal(7,2) | YES  |     | NULL    |       |
+| email_id | varchar(25)  | NO   |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table employee
+    -> add primary key(id);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| id       | int          | NO   | PRI | NULL    |       |
+| name     | varchar(25)  | YES  |     | NULL    |       |
+| salary   | decimal(7,2) | YES  |     | NULL    |       |
+| email_id | varchar(25)  | NO   |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table employee
+    -> modify name varchar(40);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| id       | int          | NO   | PRI | NULL    |       |
+| name     | varchar(40)  | YES  |     | NULL    |       |
+| salary   | decimal(7,2) | YES  |     | NULL    |       |
+| email_id | varchar(25)  | NO   |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table employee
+    -> modify salary decimal(7,2) default 20000;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++----------+--------------+------+-----+----------+-------+
+| Field    | Type         | Null | Key | Default  | Extra |
++----------+--------------+------+-----+----------+-------+
+| id       | int          | NO   | PRI | NULL     |       |
+| name     | varchar(40)  | YES  |     | NULL     |       |
+| salary   | decimal(7,2) | YES  |     | 20000.00 |       |
+| email_id | varchar(25)  | NO   |     | NULL     |       |
++----------+--------------+------+-----+----------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table employee
+    -> add column age int check(age>18) after name;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++----------+--------------+------+-----+----------+-------+
+| Field    | Type         | Null | Key | Default  | Extra |
++----------+--------------+------+-----+----------+-------+
+| id       | int          | NO   | PRI | NULL     |       |
+| name     | varchar(40)  | YES  |     | NULL     |       |
+| age      | int          | YES  |     | NULL     |       |
+| salary   | decimal(7,2) | YES  |     | 20000.00 |       |
+| email_id | varchar(25)  | NO   |     | NULL     |       |
++----------+--------------+------+-----+----------+-------+
+5 rows in set (0.00 sec)
+
+mysql> show create table employee;
++----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table    | Create Table
+
+
+
+|
++----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| employee | CREATE TABLE `employee` (
+  `id` int NOT NULL,
+  `name` varchar(40) DEFAULT NULL,
+  `age` int DEFAULT NULL,
+  `salary` decimal(7,2) DEFAULT '20000.00',
+  `email_id` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `employee_chk_1` CHECK ((`age` > 18))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
++----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> desc employee;
++----------+--------------+------+-----+----------+-------+
+| Field    | Type         | Null | Key | Default  | Extra |
++----------+--------------+------+-----+----------+-------+
+| id       | int          | NO   | PRI | NULL     |       |
+| name     | varchar(40)  | YES  |     | NULL     |       |
+| age      | int          | YES  |     | NULL     |       |
+| salary   | decimal(7,2) | YES  |     | 20000.00 |       |
+| email_id | varchar(25)  | NO   |     | NULL     |       |
++----------+--------------+------+-----+----------+-------+
+5 rows in set (0.00 sec)
+
+mysql> create table department1(
+    -> dept_id int primary key,
+    -> dept_name varchar(20) not null,
+    -> dept_loc varchar(20));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_febbatch |
++--------------------+
+| department1        |
+| employee           |
++--------------------+
+2 rows in set (0.00 sec)
+
+mysql> desc employee;
++----------+--------------+------+-----+----------+-------+
+| Field    | Type         | Null | Key | Default  | Extra |
++----------+--------------+------+-----+----------+-------+
+| id       | int          | NO   | PRI | NULL     |       |
+| name     | varchar(40)  | YES  |     | NULL     |       |
+| age      | int          | YES  |     | NULL     |       |
+| salary   | decimal(7,2) | YES  |     | 20000.00 |       |
+| email_id | varchar(25)  | NO   |     | NULL     |       |
++----------+--------------+------+-----+----------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table employee
+    -> drop primary key;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++----------+--------------+------+-----+----------+-------+
+| Field    | Type         | Null | Key | Default  | Extra |
++----------+--------------+------+-----+----------+-------+
+| id       | int          | NO   |     | NULL     |       |
+| name     | varchar(40)  | YES  |     | NULL     |       |
+| age      | int          | YES  |     | NULL     |       |
+| salary   | decimal(7,2) | YES  |     | 20000.00 |       |
+| email_id | varchar(25)  | NO   |     | NULL     |       |
++----------+--------------+------+-----+----------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table employee
+    -> drop constraint employee_chk_1;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++----------+--------------+------+-----+----------+-------+
+| Field    | Type         | Null | Key | Default  | Extra |
++----------+--------------+------+-----+----------+-------+
+| id       | int          | NO   |     | NULL     |       |
+| name     | varchar(40)  | YES  |     | NULL     |       |
+| age      | int          | YES  |     | NULL     |       |
+| salary   | decimal(7,2) | YES  |     | 20000.00 |       |
+| email_id | varchar(25)  | NO   |     | NULL     |       |
++----------+--------------+------+-----+----------+-------+
+5 rows in set (0.00 sec)
+
+mysql> show create table employee;
++----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table    | Create Table
+
+
+           |
++----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| employee | CREATE TABLE `employee` (
+  `id` int NOT NULL,
+  `name` varchar(40) DEFAULT NULL,
+  `age` int DEFAULT NULL,
+  `salary` decimal(7,2) DEFAULT '20000.00',
+  `email_id` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
++----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> desc table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> desc employee;
++----------+--------------+------+-----+----------+-------+
+| Field    | Type         | Null | Key | Default  | Extra |
++----------+--------------+------+-----+----------+-------+
+| id       | int          | NO   |     | NULL     |       |
+| name     | varchar(40)  | YES  |     | NULL     |       |
+| age      | int          | YES  |     | NULL     |       |
+| salary   | decimal(7,2) | YES  |     | 20000.00 |       |
+| email_id | varchar(25)  | NO   |     | NULL     |       |
++----------+--------------+------+-----+----------+-------+
+5 rows in set (0.00 sec)
+
+mysql> drop table department;
+ERROR 1051 (42S02): Unknown table 'febbatch.department'
+mysql> drop table department1;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_febbatch |
++--------------------+
+| employee           |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> drop database febbatch;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| db                 |
+| details            |
+| febmarchmerged     |
+| information_schema |
+| marchfebmerged     |
+| mysql              |
+| performance_schema |
+| student            |
+| sys                |
+| temp1              |
++--------------------+
+11 rows in set (0.00 sec)

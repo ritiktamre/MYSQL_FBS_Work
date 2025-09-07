@@ -1,0 +1,482 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| db                 |
+| details            |
+| febmarchmerged     |
+| firstbit_sql       |
+| information_schema |
+| marchfebmerged     |
+| mysql              |
+| performance_schema |
+| student            |
+| sys                |
+| temp1              |
++--------------------+
+12 rows in set (0.00 sec)
+
+mysql> use febmarchmerged;
+Database changed
+mysql> table employee;
++------+----------+--------------------+----------+---------+
+| e_id | e_name   | email_id           | salary   | dept_id |
++------+----------+--------------------+----------+---------+
+|    1 | Ritik    | Ritik@google.in    | 48400.00 |       1 |
+|    2 | Ravindra | Ravindra@oilmax.in | 11000.00 |       1 |
+|    3 | Krishna  | Krishna@amazon.in  | 42350.00 |       3 |
+|    5 | Rinku    | Rinku@IBM.in       | 33000.00 |       1 |
+|    6 | Anmol    | Anmol@company.in   | 10000.00 |       2 |
+|    8 | Aadarsh  | Aadarsh@company.in | 25000.00 |       4 |
+|   12 | Duggu    | Duggu@company.in   | 20000.00 |       3 |
++------+----------+--------------------+----------+---------+
+7 rows in set (0.00 sec)
+
+mysql> table department;
++---------+--------------+----------+
+| dept_id | dept_name    | dept_loc |
++---------+--------------+----------+
+|       1 | SalesManager | Indore   |
+|       2 | IT           | Indore   |
+|       3 | Sales        | Mumbai   |
+|       4 | Admin        | pune     |
++---------+--------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select length("Radhe Radhe");
++-----------------------+
+| length("Radhe Radhe") |
++-----------------------+
+|                    11 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select upper("Radhe Radhe") as "Details";
++-------------+
+| Details     |
++-------------+
+| RADHE RADHE |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select lower ("Hare ka Sahara Baba Shyam Hamara");
++--------------------------------------------+
+| lower ("Hare ka Sahara Baba Shyam Hamara") |
++--------------------------------------------+
+| hare ka sahara baba shyam hamara           |
++--------------------------------------------+
+1 row in set (0.00 sec)
+
+
+mysql> select substr("Hare ka Sahara Baba Shyam Hamara",1,34);
++-------------------------------------------------+
+| substr("Hare ka Sahara Baba Shyam Hamara",1,34) |
++-------------------------------------------------+
+| Hare ka Sahara Baba Shyam Hamara                |
++-------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select substring("Hare ka Sahara Baba Shyam Hamara",1,25);
++----------------------------------------------------+
+| substring("Hare ka Sahara Baba Shyam Hamara",1,25) |
++----------------------------------------------------+
+| Hare ka Sahara Baba Shyam                          |
++----------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select lcase("Hare ka Sahara Baba Shyam Hamara");
++-------------------------------------------+
+| lcase("Hare ka Sahara Baba Shyam Hamara") |
++-------------------------------------------+
+| hare ka sahara baba shyam hamara          |
++-------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select ucase("Hare ka Sahara Baba Shyam Hamara");
++-------------------------------------------+
+| ucase("Hare ka Sahara Baba Shyam Hamara") |
++-------------------------------------------+
+| HARE KA SAHARA BABA SHYAM HAMARA          |
++-------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select trim("   Hare ka Sahara Baba Shyam Hamara    ");
++-------------------------------------------------+
+| trim("   Hare ka Sahara Baba Shyam Hamara    ") |
++-------------------------------------------------+
+| Hare ka Sahara Baba Shyam Hamara                |
++-------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select trim("   Hare ka Sahara Baba Shyam Hamara    ") as Result;
++----------------------------------+
+| Result                           |
++----------------------------------+
+| Hare ka Sahara Baba Shyam Hamara |
++----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select rtrim("   Hare ka Sahara Baba Shyam Hamara    ") as Result;
++-------------------------------------+
+| Result                              |
++-------------------------------------+
+|    Hare ka Sahara Baba Shyam Hamara |
++-------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select ltrim("   Hare ka Sahara Baba Shyam Hamara    ") as Result;
++--------------------------------------+
+| Result                               |
++--------------------------------------+
+| Hare ka Sahara Baba Shyam Hamara     |
++--------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select replace("Radhe Radhe","Radhe","Krishna");
++------------------------------------------+
+| replace("Radhe Radhe","Radhe","Krishna") |
++------------------------------------------+
+| Krishna Krishna                          |
++------------------------------------------+
+1 row in set (0.01 sec)
+
+mysql> select replace("Radhe jii","jii","Krishna") as Result;
++---------------+
+| Result        |
++---------------+
+| Radhe Krishna |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select left("India",3) as Result;
++--------+
+| Result |
++--------+
+| Ind    |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select Right("India",3) as Result;
++--------+
+| Result |
++--------+
+| dia    |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select concat("18","June","2025") as Result;
++------------+
+| Result     |
++------------+
+| 18June2025 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select concat("18","-","June","-","2025") as Result;
++--------------+
+| Result       |
++--------------+
+| 18-June-2025 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select concat("-","18","June","2025") as Result;
++-------------+
+| Result      |
++-------------+
+| -18June2025 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select concat_ws("-","18","June","2025") as Result;
++--------------+
+| Result       |
++--------------+
+| 18-June-2025 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select upper(e_name) from employee;
++---------------+
+| upper(e_name) |
++---------------+
+| RITIK         |
+| RAVINDRA      |
+| KRISHNA       |
+| RINKU         |
+| ANMOL         |
+| AADARSH       |
+| DUGGU         |
++---------------+
+7 rows in set (0.00 sec)
+
+mysql> select lower(e_name) from employee;
++---------------+
+| lower(e_name) |
++---------------+
+| ritik         |
+| ravindra      |
+| krishna       |
+| rinku         |
+| anmol         |
+| aadarsh       |
+| duggu         |
++---------------+
+7 rows in set (0.00 sec)
+
+mysql> select concat_ws("-",left(e_name,3),right(email_id,3)) as Result from employee;
++---------+
+| Result  |
++---------+
+| Rit-.in |
+| Rav-.in |
+| Kri-.in |
+| Rin-.in |
+| Anm-.in |
+| Aad-.in |
+| Dug-.in |
++---------+
+7 rows in set (0.00 sec)
+
+mysql> select sum(salary) from salary;
+ERROR 1146 (42S02): Table 'febmarchmerged.salary' doesn't exist
+mysql> select sum(salary) from employee;
++-------------+
+| sum(salary) |
++-------------+
+|   189750.00 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(salary) from employee;
++--------------+
+| avg(salary)  |
++--------------+
+| 27107.142857 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select round(avg(salary)) from employee;
++--------------------+
+| round(avg(salary)) |
++--------------------+
+|              27107 |
++--------------------+
+1 row in set (0.01 sec)
+
+mysql> select round(27107.2);
++----------------+
+| round(27107.2) |
++----------------+
+|          27107 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select round(27107.7);
++----------------+
+| round(27107.7) |
++----------------+
+|          27108 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select floor(27107.7);
++----------------+
+| floor(27107.7) |
++----------------+
+|          27107 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select floor(27107.8);
++----------------+
+| floor(27107.8) |
++----------------+
+|          27107 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select floor(27107.3);
++----------------+
+| floor(27107.3) |
++----------------+
+|          27107 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select ceil(27107.3);
++---------------+
+| ceil(27107.3) |
++---------------+
+|         27108 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select ceil(27107.8);
++---------------+
+| ceil(27107.8) |
++---------------+
+|         27108 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select ceil(27107.0);
++---------------+
+| ceil(27107.0) |
++---------------+
+|         27107 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select sqrt(9);
++---------+
+| sqrt(9) |
++---------+
+|       3 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select sqrt(121);
++-----------+
+| sqrt(121) |
++-----------+
+|        11 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select curdate();
++------------+
+| curdate()  |
++------------+
+| 2025-06-18 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select now();
++---------------------+
+| now()               |
++---------------------+
+| 2025-06-18 18:15:59 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select year("2020-07-12");
++--------------------+
+| year("2020-07-12") |
++--------------------+
+|               2020 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select month("2020-07-12");
++---------------------+
+| month("2020-07-12") |
++---------------------+
+|                   7 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select dayname("2020-07-12");
++-----------------------+
+| dayname("2020-07-12") |
++-----------------------+
+| Sunday                |
++-----------------------+
+1 row in set (0.01 sec)
+
+mysql> select dayname("2025-06-17");
++-----------------------+
+| dayname("2025-06-17") |
++-----------------------+
+| Tuesday               |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select monthname("2020-07-12");
++-------------------------+
+| monthname("2020-07-12") |
++-------------------------+
+| July                    |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> select datediff("2025-06-17","2024-05-12");
++-------------------------------------+
+| datediff("2025-06-17","2024-05-12") |
++-------------------------------------+
+|                                 401 |
++-------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select date_add("2025-05-17",interval 10 day);
++----------------------------------------+
+| date_add("2025-05-17",interval 10 day) |
++----------------------------------------+
+| 2025-05-27                             |
++----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select date_add("2025-06-17",interval 10 day);
++----------------------------------------+
+| date_add("2025-06-17",interval 10 day) |
++----------------------------------------+
+| 2025-06-27                             |
++----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select date_add("2025-06-17",interval 1 year);
++----------------------------------------+
+| date_add("2025-06-17",interval 1 year) |
++----------------------------------------+
+| 2026-06-17                             |
++----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select date_add("2025-06-17",interval 1 month);
++-----------------------------------------+
+| date_add("2025-06-17",interval 1 month) |
++-----------------------------------------+
+| 2025-07-17                              |
++-----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select date_sub("2025-06-17",interval 1 month);
++-----------------------------------------+
+| date_sub("2025-06-17",interval 1 month) |
++-----------------------------------------+
+| 2025-05-17                              |
++-----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select date_sub("2025-06-17",interval 1 year);
++----------------------------------------+
+| date_sub("2025-06-17",interval 1 year) |
++----------------------------------------+
+| 2024-06-17                             |
++----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select date_format("2025-06-17","%d-%m-%y");
++--------------------------------------+
+| date_format("2025-06-17","%d-%m-%y") |
++--------------------------------------+
+| 17-06-25                             |
++--------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select date_format("2025-06-17","%y-%m-%d");
++--------------------------------------+
+| date_format("2025-06-17","%y-%m-%d") |
++--------------------------------------+
+| 25-06-17                             |
++--------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select date_format("2025-06-17","%w-%y-%m-%d");
++-----------------------------------------+
+| date_format("2025-06-17","%w-%y-%m-%d") |
++-----------------------------------------+
+| 2-25-06-17                              |
++-----------------------------------------+
+1 row in set (0.00 sec)

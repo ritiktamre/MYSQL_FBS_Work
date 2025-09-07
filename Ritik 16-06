@@ -1,0 +1,262 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| db                 |
+| details            |
+| febmarchmerged     |
+| firstbit_sql       |
+| information_schema |
+| marchfebmerged     |
+| mysql              |
+| performance_schema |
+| student            |
+| sys                |
+| temp1              |
++--------------------+
+12 rows in set (0.00 sec)
+
+mysql> use febmarchmerged;
+Database changed
+mysql> table employee;
++------+----------+--------------------+----------+---------+
+| e_id | e_name   | email_id           | salary   | dept_id |
++------+----------+--------------------+----------+---------+
+|    1 | Ritik    | Ritik@google.in    | 48400.00 |       1 |
+|    2 | Ravindra | Ravindra@oilmax.in | 11000.00 |       1 |
+|    3 | Krishna  | Krishna@amazon.in  | 42350.00 |       3 |
+|    5 | Rinku    | Rinku@IBM.in       | 33000.00 |       1 |
+|    6 | Anmol    | Anmol@company.in   | 10000.00 |       2 |
+|    8 | Aadarsh  | Aadarsh@company.in | 25000.00 |       4 |
+|   12 | Duggu    | Duggu@company.in   | 20000.00 |       3 |
++------+----------+--------------------+----------+---------+
+7 rows in set (0.00 sec)
+
+mysql> table departmrnt;
+ERROR 1146 (42S02): Table 'febmarchmerged.departmrnt' doesn't exist
+mysql> table department;
++---------+--------------+----------+
+| dept_id | dept_name    | dept_loc |
++---------+--------------+----------+
+|       1 | SalesManager | Indore   |
+|       2 | IT           | Indore   |
+|       3 | Sales        | Mumbai   |
+|       4 | Admin        | pune     |
++---------+--------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select e_name,dept_name from employee cross join department;
++----------+--------------+
+| e_name   | dept_name    |
++----------+--------------+
+| Ritik    | Admin        |
+| Ritik    | Sales        |
+| Ritik    | IT           |
+| Ritik    | SalesManager |
+| Ravindra | Admin        |
+| Ravindra | Sales        |
+| Ravindra | IT           |
+| Ravindra | SalesManager |
+| Krishna  | Admin        |
+| Krishna  | Sales        |
+| Krishna  | IT           |
+| Krishna  | SalesManager |
+| Rinku    | Admin        |
+| Rinku    | Sales        |
+| Rinku    | IT           |
+| Rinku    | SalesManager |
+| Anmol    | Admin        |
+| Anmol    | Sales        |
+| Anmol    | IT           |
+| Anmol    | SalesManager |
+| Aadarsh  | Admin        |
+| Aadarsh  | Sales        |
+| Aadarsh  | IT           |
+| Aadarsh  | SalesManager |
+| Duggu    | Admin        |
+| Duggu    | Sales        |
+| Duggu    | IT           |
+| Duggu    | SalesManager |
++----------+--------------+
+28 rows in set (0.00 sec)
+
+mysql> select e_name,dept_name from employee inner join
+    -> department on employee.dept_id = department.dept_id;
++----------+--------------+
+| e_name   | dept_name    |
++----------+--------------+
+| Ritik    | SalesManager |
+| Ravindra | SalesManager |
+| Rinku    | SalesManager |
+| Anmol    | IT           |
+| Krishna  | Sales        |
+| Duggu    | Sales        |
+| Aadarsh  | Admin        |
++----------+--------------+
+7 rows in set (0.00 sec)
+
+mysql> select e_name,salary,dept_name,dept_loc from employee inner join
+    -> department on employee.dept_id = department.dept_id;
++----------+----------+--------------+----------+
+| e_name   | salary   | dept_name    | dept_loc |
++----------+----------+--------------+----------+
+| Ritik    | 48400.00 | SalesManager | Indore   |
+| Ravindra | 11000.00 | SalesManager | Indore   |
+| Rinku    | 33000.00 | SalesManager | Indore   |
+| Anmol    | 10000.00 | IT           | Indore   |
+| Krishna  | 42350.00 | Sales        | Mumbai   |
+| Duggu    | 20000.00 | Sales        | Mumbai   |
+| Aadarsh  | 25000.00 | Admin        | pune     |
++----------+----------+--------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> select e_id,e_name,salary,dept_name,dept_loc from employee inner join
+    -> department on employee.dept_id = department.dept_id;
++------+----------+----------+--------------+----------+
+| e_id | e_name   | salary   | dept_name    | dept_loc |
++------+----------+----------+--------------+----------+
+|    1 | Ritik    | 48400.00 | SalesManager | Indore   |
+|    2 | Ravindra | 11000.00 | SalesManager | Indore   |
+|    5 | Rinku    | 33000.00 | SalesManager | Indore   |
+|    6 | Anmol    | 10000.00 | IT           | Indore   |
+|    3 | Krishna  | 42350.00 | Sales        | Mumbai   |
+|   12 | Duggu    | 20000.00 | Sales        | Mumbai   |
+|    8 | Aadarsh  | 25000.00 | Admin        | pune     |
++------+----------+----------+--------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> select e_id,e_name,salary,dept_name,dept_loc,dept_id from employee inner join
+    -> department on employee.dept_id = department.dept_id;
+ERROR 1052 (23000): Column 'dept_id' in field list is ambiguous
+mysql> select e_id,e_name,salary,dept_name,dept_loc,department.dept_id from employee inner join
+    -> department on employee.dept_id = department.dept_id;
++------+----------+----------+--------------+----------+---------+
+| e_id | e_name   | salary   | dept_name    | dept_loc | dept_id |
++------+----------+----------+--------------+----------+---------+
+|    1 | Ritik    | 48400.00 | SalesManager | Indore   |       1 |
+|    2 | Ravindra | 11000.00 | SalesManager | Indore   |       1 |
+|    5 | Rinku    | 33000.00 | SalesManager | Indore   |       1 |
+|    6 | Anmol    | 10000.00 | IT           | Indore   |       2 |
+|    3 | Krishna  | 42350.00 | Sales        | Mumbai   |       3 |
+|   12 | Duggu    | 20000.00 | Sales        | Mumbai   |       3 |
+|    8 | Aadarsh  | 25000.00 | Admin        | pune     |       4 |
++------+----------+----------+--------------+----------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select e_id,e_name,salary,dept_name,dept_loc,d.dept_id from employee e inner join
+    -> department d on e.dept_id = d.dept_id;
++------+----------+----------+--------------+----------+---------+
+| e_id | e_name   | salary   | dept_name    | dept_loc | dept_id |
++------+----------+----------+--------------+----------+---------+
+|    1 | Ritik    | 48400.00 | SalesManager | Indore   |       1 |
+|    2 | Ravindra | 11000.00 | SalesManager | Indore   |       1 |
+|    5 | Rinku    | 33000.00 | SalesManager | Indore   |       1 |
+|    6 | Anmol    | 10000.00 | IT           | Indore   |       2 |
+|    3 | Krishna  | 42350.00 | Sales        | Mumbai   |       3 |
+|   12 | Duggu    | 20000.00 | Sales        | Mumbai   |       3 |
+|    8 | Aadarsh  | 25000.00 | Admin        | pune     |       4 |
++------+----------+----------+--------------+----------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select e_id,e_name,salary,dept_name,dept_loc,d.dept_id from employee e inner join
+    -> department d on e.dept_id = d.dept_id;
++------+----------+----------+--------------+----------+---------+
+| e_id | e_name   | salary   | dept_name    | dept_loc | dept_id |
++------+----------+----------+--------------+----------+---------+
+|    1 | Ritik    | 48400.00 | SalesManager | Indore   |       1 |
+|    2 | Ravindra | 11000.00 | SalesManager | Indore   |       1 |
+|    5 | Rinku    | 33000.00 | SalesManager | Indore   |       1 |
+|    6 | Anmol    | 10000.00 | IT           | Indore   |       2 |
+|    3 | Krishna  | 42350.00 | Sales        | Mumbai   |       3 |
+|   12 | Duggu    | 20000.00 | Sales        | Mumbai   |       3 |
+|    8 | Aadarsh  | 25000.00 | Admin        | pune     |       4 |
++------+----------+----------+--------------+----------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select e_id,e_name,salary,dept_name,dept_loc,d.dept_id from employee e inner join
+    -> department d on e.dept_id = d.dept_id
+    -> order by salary desc;
++------+----------+----------+--------------+----------+---------+
+| e_id | e_name   | salary   | dept_name    | dept_loc | dept_id |
++------+----------+----------+--------------+----------+---------+
+|    1 | Ritik    | 48400.00 | SalesManager | Indore   |       1 |
+|    3 | Krishna  | 42350.00 | Sales        | Mumbai   |       3 |
+|    5 | Rinku    | 33000.00 | SalesManager | Indore   |       1 |
+|    8 | Aadarsh  | 25000.00 | Admin        | pune     |       4 |
+|   12 | Duggu    | 20000.00 | Sales        | Mumbai   |       3 |
+|    2 | Ravindra | 11000.00 | SalesManager | Indore   |       1 |
+|    6 | Anmol    | 10000.00 | IT           | Indore   |       2 |
++------+----------+----------+--------------+----------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select dept_name,avg(salary) from employee e inner join
+    -> department d on e.dept_id=d.dept_id group by e.dept_id;
++--------------+--------------+
+| dept_name    | avg(salary)  |
++--------------+--------------+
+| SalesManager | 30800.000000 |
+| IT           | 10000.000000 |
+| Sales        | 31175.000000 |
+| Admin        | 25000.000000 |
++--------------+--------------+
+4 rows in set (0.01 sec)
+
+mysql> select dept_name,avg(salary) from employee e inner join
+    -> department d on e.dept_id=d.dept_id group by e.dept_id;
++--------------+--------------+
+| dept_name    | avg(salary)  |
++--------------+--------------+
+| SalesManager | 30800.000000 |
+| IT           | 10000.000000 |
+| Sales        | 31175.000000 |
+| Admin        | 25000.000000 |
++--------------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> select dept_name,avg(salary) from employee e inner join
+    -> department d on e.dept_id=d.dept_id group by e.dept_id
+    -> having avg(salary)>20000;
++--------------+--------------+
+| dept_name    | avg(salary)  |
++--------------+--------------+
+| SalesManager | 30800.000000 |
+| Sales        | 31175.000000 |
+| Admin        | 25000.000000 |
++--------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> select e_name,dept_name from employee e ,department d;
++----------+--------------+
+| e_name   | dept_name    |
++----------+--------------+
+| Ritik    | Admin        |
+| Ritik    | Sales        |
+| Ritik    | IT           |
+| Ritik    | SalesManager |
+| Ravindra | Admin        |
+| Ravindra | Sales        |
+| Ravindra | IT           |
+| Ravindra | SalesManager |
+| Krishna  | Admin        |
+| Krishna  | Sales        |
+| Krishna  | IT           |
+| Krishna  | SalesManager |
+| Rinku    | Admin        |
+| Rinku    | Sales        |
+| Rinku    | IT           |
+| Rinku    | SalesManager |
+| Anmol    | Admin        |
+| Anmol    | Sales        |
+| Anmol    | IT           |
+| Anmol    | SalesManager |
+| Aadarsh  | Admin        |
+| Aadarsh  | Sales        |
+| Aadarsh  | IT           |
+| Aadarsh  | SalesManager |
+| Duggu    | Admin        |
+| Duggu    | Sales        |
+| Duggu    | IT           |
+| Duggu    | SalesManager |
++----------+--------------+
+28 rows in set (0.00 sec)

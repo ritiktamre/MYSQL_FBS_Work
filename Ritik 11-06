@@ -1,0 +1,194 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| db                 |
+| details            |
+| febmarchmerged     |
+| firstbit_sql       |
+| information_schema |
+| marchfebmerged     |
+| mysql              |
+| performance_schema |
+| student            |
+| sys                |
+| temp1              |
++--------------------+
+12 rows in set (0.02 sec)
+
+mysql> use febmarchmerged;
+Database changed
+mysql> show tables;
++--------------------------+
+| Tables_in_febmarchmerged |
++--------------------------+
+| department               |
+| employee                 |
++--------------------------+
+2 rows in set (0.01 sec)
+
+mysql> table employee;
++------+----------+--------------------+----------+---------+
+| e_id | e_name   | email_id           | salary   | dept_id |
++------+----------+--------------------+----------+---------+
+|    1 | Ritik    | Ritik@google.in    | 48400.00 |       1 |
+|    2 | Ravindra | Ravindra@oilmax.in | 11000.00 |       1 |
+|    3 | Krishna  | Krishna@amazon.in  | 42350.00 |       3 |
+|    5 | Rinku    | Rinku@IBM.in       | 33000.00 |       1 |
++------+----------+--------------------+----------+---------+
+4 rows in set (0.01 sec)
+
+mysql> select * from employee order by salary desc,salary asc limit 2;
++------+---------+-------------------+----------+---------+
+| e_id | e_name  | email_id          | salary   | dept_id |
++------+---------+-------------------+----------+---------+
+|    1 | Ritik   | Ritik@google.in   | 48400.00 |       1 |
+|    3 | Krishna | Krishna@amazon.in | 42350.00 |       3 |
++------+---------+-------------------+----------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee order by salary asc limit 4;
++------+----------+--------------------+----------+---------+
+| e_id | e_name   | email_id           | salary   | dept_id |
++------+----------+--------------------+----------+---------+
+|    2 | Ravindra | Ravindra@oilmax.in | 11000.00 |       1 |
+|    5 | Rinku    | Rinku@IBM.in       | 33000.00 |       1 |
+|    3 | Krishna  | Krishna@amazon.in  | 42350.00 |       3 |
+|    1 | Ritik    | Ritik@google.in    | 48400.00 |       1 |
++------+----------+--------------------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee order by dept_id desc ;
++------+----------+--------------------+----------+---------+
+| e_id | e_name   | email_id           | salary   | dept_id |
++------+----------+--------------------+----------+---------+
+|    3 | Krishna  | Krishna@amazon.in  | 42350.00 |       3 |
+|    1 | Ritik    | Ritik@google.in    | 48400.00 |       1 |
+|    2 | Ravindra | Ravindra@oilmax.in | 11000.00 |       1 |
+|    5 | Rinku    | Rinku@IBM.in       | 33000.00 |       1 |
++------+----------+--------------------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee order by dept_id asc ;
++------+----------+--------------------+----------+---------+
+| e_id | e_name   | email_id           | salary   | dept_id |
++------+----------+--------------------+----------+---------+
+|    1 | Ritik    | Ritik@google.in    | 48400.00 |       1 |
+|    2 | Ravindra | Ravindra@oilmax.in | 11000.00 |       1 |
+|    5 | Rinku    | Rinku@IBM.in       | 33000.00 |       1 |
+|    3 | Krishna  | Krishna@amazon.in  | 42350.00 |       3 |
++------+----------+--------------------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee order by dept_id asc offset 2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'offset 2' at line 1
+mysql> select * from employee order by dept_id asc limit 4 offset 2;
++------+---------+-------------------+----------+---------+
+| e_id | e_name  | email_id          | salary   | dept_id |
++------+---------+-------------------+----------+---------+
+|    5 | Rinku   | Rinku@IBM.in      | 33000.00 |       1 |
+|    3 | Krishna | Krishna@amazon.in | 42350.00 |       3 |
++------+---------+-------------------+----------+---------+
+2 rows in set (0.00 sec)
+
+mysql> table employee;
++------+----------+--------------------+----------+---------+
+| e_id | e_name   | email_id           | salary   | dept_id |
++------+----------+--------------------+----------+---------+
+|    1 | Ritik    | Ritik@google.in    | 48400.00 |       1 |
+|    2 | Ravindra | Ravindra@oilmax.in | 11000.00 |       1 |
+|    3 | Krishna  | Krishna@amazon.in  | 42350.00 |       3 |
+|    5 | Rinku    | Rinku@IBM.in       | 33000.00 |       1 |
++------+----------+--------------------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select sum(salary) from employee;
++-------------+
+| sum(salary) |
++-------------+
+|   134750.00 |
++-------------+
+1 row in set (0.01 sec)
+
+mysql> select Avg(salary) from employee;
++--------------+
+| Avg(salary)  |
++--------------+
+| 33687.500000 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select count(salary) from employee;
++---------------+
+| count(salary) |
++---------------+
+|             4 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select max(salary) from employee;
++-------------+
+| max(salary) |
++-------------+
+|    48400.00 |
++-------------+
+1 row in set (0.01 sec)
+
+mysql> select min(salary) from employee;
++-------------+
+| min(salary) |
++-------------+
+|    11000.00 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select count(*),max(salary),min(salary),avg(salary),sum(salary) from employee;
++----------+-------------+-------------+--------------+-------------+
+| count(*) | max(salary) | min(salary) | avg(salary)  | sum(salary) |
++----------+-------------+-------------+--------------+-------------+
+|        4 |    48400.00 |    11000.00 | 33687.500000 |   134750.00 |
++----------+-------------+-------------+--------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select dept_id,sum(salary) from employee group by dept_id;
++---------+-------------+
+| dept_id | sum(salary) |
++---------+-------------+
+|       1 |    92400.00 |
+|       3 |    42350.00 |
++---------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> select dept_id,count(e_id) from employee group by dept_id;
++---------+-------------+
+| dept_id | count(e_id) |
++---------+-------------+
+|       1 |           3 |
+|       3 |           1 |
++---------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> select dept_id as"Department ID" salary as"Sum of ALL Employee Salary" from employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'salary as"Sum of ALL Employee Salary" from employee' at line 1
+mysql> select dept_id as"Department ID", salary as"Sum of ALL Employee Salary" from employee;
++---------------+----------------------------+
+| Department ID | Sum of ALL Employee Salary |
++---------------+----------------------------+
+|             1 |                   48400.00 |
+|             1 |                   11000.00 |
+|             3 |                   42350.00 |
+|             1 |                   33000.00 |
++---------------+----------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select dept_id as"Department ID", salary as" ALL Employee Salary" from employee;
++---------------+---------------------+
+| Department ID | ALL Employee Salary |
++---------------+---------------------+
+|             1 |            48400.00 |
+|             1 |            11000.00 |
+|             3 |            42350.00 |
+|             1 |            33000.00 |
++---------------+---------------------+
+4 rows in set, 1 warning (0.00 sec)
