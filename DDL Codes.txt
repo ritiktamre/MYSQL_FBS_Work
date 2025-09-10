@@ -1,0 +1,47 @@
+# Data Defination Langyane Question
+
+Que. What is Data Defination Language.
+Ans = DDl it stands for Data Defination language.Data Defination language is used to change the structure in your table is called Data Defination language.
+
+# DDL Commands.
+a. CREATE , b. ALTER,  c. DROP; 
+
+Que. Create a new database	CREATE DATABASE SchoolDB;
+Ans = create database SchoolDB;
+
+Que. Create a table Student (id, name, age, marks)	CREATE TABLE Student (id INT, name VARCHAR(50), age INT, marks INT);
+Ans = create table Student (
+    id int ,
+    name varchar(50),
+    age int,
+    marks int );
+
+Que. Add a new column email to Student	ALTER TABLE Student ADD email VARCHAR(100);
+Ans = alter table Student
+      add column email_id varchar(100);
+
+Que. Change datatype of marks to DECIMAL(5,2)	ALTER TABLE Student MODIFY marks DECIMAL(5,2);
+Ans = alter table Student 
+     modify marks decimal(5,2);
+
+Que. Delete the column age from Student	ALTER TABLE Student DROP COLUMN age;
+Ans = alter table student 
+      drop column age;
+
+Que. Rename table Student to Learner	ALTER TABLE Student RENAME TO Learner;
+Ans = alter table Student 
+      Rename to learner;
+
+Que. Delete the table Employee	DROP TABLE Employee;
+Ans = drop Employee;
+
+Que. Add a primary key on column id	ALTER TABLE Student ADD CONSTRAINT pk_student PRIMARY KEY (id);
+
+Ans = alter table Student 
+     add Constrains id int primary key;
+
+
+
+
+
+ 

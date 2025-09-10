@@ -1,0 +1,39 @@
+# DATA MANIPULATION LANGUAGE QUESTIONS
+
+Que = What Is DML.
+
+Ans = DML it stands for Data Manipulation Language. Data Manipulation language is used to change the data in your table is called Data Manipulation language.
+
+DML Commands.
+a.INSERT() , b. UPDATE(), c.DELETE();
+
+Que. Insert a record into Student (id=1, name='John', age=20, marks=85).
+Ans = insert into Student(id,name,age,marks)values(1,'John',20,85);
+
+Que. Insert multiple records into Student in a single query.
+Ans = insert into Student(id,name,age,marks)values(2,'Rahul',24,76),
+      (3,'Rohit',27,73),(4,'Kohli',28,89);
+
+Que. Update the marks of Student where id=1 to 90.
+Ans = update Student set marks=90 where id =1 ;
+
+Que. Increase the salary of all employees in Employee table by 10%.
+Ans = Update Employee set salary = salary * 1.10;
+
+Que. Delete the record from Student where id=2.
+Ans = delete from Student where id = 2;
+
+Que. Delete all records from Employee table but keep the table structure.
+Ans = delete table employee;
+
+Que.Display all records from the Student table.
+Ans = Select * from Student;
+
+Que.Display only name and marks of students who scored more than 80.
+Ans = select name,marks from student where marks > 80;
+
+Que.Display employees whose salary is between 30000 and 50000.
+Ans = Select * from employee where salary between 30000 and 50000;
+
+Que.Sort students by marks in descending order.
+Ans = Select * from student order by marks desc; 

@@ -1,0 +1,31 @@
+WHERE CLAUSES QUESTION 
+
+Que = What is where clause.
+Ans = where clause is used to filtering the data in your table is called Where Clause.
+
+Que. Display all students whose marks are greater than 80.
+Ans = select * from student where marks > 80;
+
+Que. Show details of students whose age is less than 20.
+Ans = select * from student where age < 20;
+
+Que. Find employees whose salary is equal to 50000.
+Ans = select * from Employee where salary = 50000;
+
+Que. Display all employees whose salary is not equal to 30000.
+Ans = Select * from employee where salary != 30000;
+
+Que. Show students whose name is 'John'.
+Ans = select * from student where name='John';
+
+Que. Find employees whose department is either 'HR' or 'IT'.
+Ans = select * from employee where department in ('HR','IT');
+
+Que. Display students whose marks are between 70 and 90.
+Ans = select * from student where marks between 70 and 90;
+
+Que. Show employees whose name starts with 'A'.
+Ans = select * from employee where name like = 'A%';
+
+Que. Display students whose name ends with 'n'. 
+Ans = Select * from student where name like ='%n';

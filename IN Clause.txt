@@ -1,0 +1,43 @@
+  # IN CLAUSE QUESTION
+
+ Que = What is In Clause.
+ Ans = In Clause is used to match a value against a list of value is called in claues.
+
+Que. Display all employees whose department is either 'HR', 'IT', or 'Finance'.
+Ans = select * from Employee where department in ('HR','IT','Finance');
+
+
+Que. Show students whose id is in the list (1, 3, 5, 7).
+Ans = select * from student where id in (1,3,5,7);
+
+
+Que. Find employees whose salary is either 30000, 40000, or 50000.
+Ans = select * from employee where salary in (30000,40000,50000);
+
+
+Que. Display students whose marks are either 60, 70, 80, or 90.
+Ans = select * from Students where marks in (60,70,80,90);
+
+
+Que. Show employees who work in the cities 'Delhi', 'Mumbai', or 'Bangalore'.
+Ans = select * from Employee where cities in ('Delhi','Mumbai','Banglore');
+
+
+Que. Display students whose name is in ('John', 'Alice', 'David').
+Ans = Select * from Student where name in ('John','Alice','David');
+
+
+Que. Find employees whose job_title is in ('Manager', 'Clerk').
+Ans = select * from Employee where job_title in ('Manager','Clerk');
+
+
+Que. Show students whose age is in (18, 20, 22).
+Ans = select * from Students where age in (18,20,22);
+
+
+Que. Display employees whose department_id is in (101, 102).
+Ans = Select * from Employee where department_id in (101,102);
+
+
+Que. Show students whose id is NOT in (2, 4, 6, 8).
+Ans = select * from Students where id not in (2,4,6,8);
