@@ -1,0 +1,57 @@
+ # AND , OR , NOT Clause Question.
+
+ Que. Display all students whose marks > 80 AND age < 20.
+ Ans = Select * from Student where marks > 80 and age < 20.
+
+ 
+ Que.  Show employees whose salary > 40000 AND department = 'IT'.
+ Ans = Select * from Employee where salary > 40000 and Department = 'IT';
+
+ 
+ Que. Find students whose marks > 70 OR age < 18.
+ Ans = Select * from Student where marks > 70 or age < 18;
+
+ 
+ Que. Display employees working in HR OR Finance.
+ Ans = Select * from Employee where department = 'HR' or department ='Finance';
+ 
+
+ Que. Show students whose name = 'John' AND marks > 85.
+ Ans = select * from Student where name = 'John' and marks > 85;
+
+
+ Que. Display employees whose department is NOT 'Sales'.
+ Ans = Select * from Employee where Not department = 'Sales';
+
+
+ Que. Show students whose marks are NOT between 60 and 90.
+ Ans = Select * from Students where marks not between 60 and 90;
+
+
+ Que. Display employees whose salary > 50000 AND job_title = 'Manager'.
+ Ans = select * from employee where salary > 50000 and job_title ='Manager';
+
+
+ Que. Display employees who are NOT in ('HR', 'IT', 'Finance').
+ Ans = select * from employee where department not in ('HR','IT','Finance');
+
+
+ Que. Write an SQL query to display employees whose salary is greater than 30000 and department is "HR".
+ Ans = Select * from Employee where salary > 30000 and department = 'HR';
+
+
+Que.How would you retrieve students who scored more than 80 marks or belong to class "12th"?
+Ans = select * from student where marks > 80 or class='12th';
+
+
+Que.How can you use AND and OR together in a single SQL query?
+Ans = select * from employee where salary between 50000 and 70000 or age > 18;
+
+ 
+Que.  Find all employees whose name starts with "A" and salary is between 20000 and 40000.
+Ans = select * from employee where name like ='A%' and salary between 20000 and 40000;
+
+
+Que. Write an SQL query using OR to show employees having job "Manager" or salary > 50000.
+Ans = select * from employee where department = 'Manager' or salary > 50000;
+

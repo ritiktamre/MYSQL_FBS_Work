@@ -1,0 +1,40 @@
+   # Like operator Question 
+
+Que. Write a query to find employees whose name starts with the letter 'S'.
+Ans = select * from employee where name like = 'S%';
+
+
+Que. How do you select students whose name ends with 'a'?
+Ans = select * from student where name like = '%a';
+
+
+Que. Write an SQL query to display products containing the word 'Pro' anywhere in the name.
+Ans = select * from product where name like = '%pro%';
+
+
+Que. Find customers whose second character in the name is 'o'.
+Ans = select * from customers where name like = '_o%';
+
+
+Que. Write a query to get employees whose name has exactly 6 characters.
+Ans = select * from employee where name like = '______';
+
+
+Que. How do you find cities starting with 'New'?
+Ans = Select * from cities where name like = 'New%';
+
+
+Que. Write an SQL query to fetch books whose title ends with 'Data'.
+Ans = Select * from books where name like = '%Data';
+
+
+Que. Retrieve orders where the customer name does not contain 'e'.
+Ans = select * from customer where name like !='e';
+
+
+Que. Write a query to display students whose names start with 'A' and end with 'h'.
+Ans = select * from Students where name like = 'a%h';
+
+
+Que. Find products where the third character is 'n'.
+Ans = select * from product where name like = '__n%';
