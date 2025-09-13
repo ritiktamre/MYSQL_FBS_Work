@@ -1,0 +1,47 @@
+  # LIMIT CLAUSE AND OFFSET CLAUSE QUESTIONS 
+
+ Que =  What is Limit Clause.
+ Ans = Limit clause is used to How many to display is called as LImit Clause.
+
+
+ Que = What is Offset Clause.
+ Ans = Offset Clause is used to How many to Skip is called as Offset Clause.
+
+
+ Que. Show the first 5 students from the Student table.
+ Ans = Select * from Student limit 5;
+
+ 
+ Que. Show the first 10 employees with the highest salary.
+ Ans = select * from employee order by salary desc limit 10;
+
+
+ Que. Display the 3 students with the lowest marks.
+ Ans = Select * from Student order by marks asc limit 3;
+
+ 
+ Que. Show employees sorted by name and return only the first 7.
+ Ans = Select * from employee order by name asc limit 7;
+
+ 
+ Que. Display 5 students starting from the 6th record.
+ Ans = select * from Student offset 5,limit 5;
+
+ 
+ Que. Show employees with the second-highest salary (using LIMIT + OFFSET).
+ Ans = Select * from Employee order by salary desc limit 1,offset 1;
+
+ 
+ Que. Display the 3rd to 5th students by age (ascending).
+ Ans = Select * from Student order by age asc limit 3,offset 2;
+
+
+ Que. Show top 2 employees from each department (hint: LIMIT with filtering).
+ Ans = Select * from Employee order by salary desc limit 2;
+
+
+Que. Display students skipping the first 10 records and showing the next 5.
+Ans = select * from Student limit 5, offset 10;
+
+
+

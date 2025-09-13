@@ -1,0 +1,52 @@
+  # AGREEGATE FUNCTION QESTION 
+
+Que =  What is Agreegate Function.
+Ans = Agreegate function is a function in which sql perform to calculation a multiple value and return by a single value result is called as Agreegate Function.
+
+
+# Agreegate Function are five types.
+1.Avg(), 2.Sum(), 3.Count(), 4.Max(), 5.Min();
+
+
+# Group By Clause = group by caluse is mostly used by select statement with agreegate function is called Group by clause.
+
+
+Que. Write a query to find the total salary paid in each department.
+Ans = select department,sum(salary) as total Salary from employee group by department; 
+
+
+Que. Display the average salary of employees in each job role.
+Ans = select job_role,avg(salary) from employee group by job_role;
+
+
+Que. Write an SQL query to find the number of students in each class.
+Ans = select class,count(*) as total students from student group by Class;
+
+
+Que. Show the highest order amount for each customer.
+Ans = select Customer,max(amount) from order group by Customer;
+
+
+Que. Write a query to find the minimum marks scored in each subject.
+Ans = select Subject,min(marks) from student group by Subject.
+
+
+Que. Display the count of employees in each department.
+Ans = select department,Count(*) from employee group by department.
+
+
+Que. Write an SQL query to get the average age of customers in each city.
+Ans = select city,avg(age) from customers group by city;
+
+
+Que. Show the sum of product prices in each category.
+Ans = select category,sum(prices) from product group by category;
+
+
+Que. Write a query to display the maximum salary of employees who joined in each year.
+Ans = select year,max(salary) from employee group by year;
+
+
+
+
+

@@ -1,0 +1,40 @@
+ # ORDER BY CLAUSE QUESTIONS
+
+ Que= What is Order By Clause.
+ Ans = Order By clause is used to sorting the data by assending or dessending order in your table is called Order By Clause.
+
+
+Que. Display all students sorted by marks in ascending order.
+Ans = Select * from Students order by marks asc;
+
+
+Que. Show all employees sorted by salary in descending order.
+Ans = Select * from Employee order by Salary desc;
+
+
+Que. Display students sorted by name alphabetically.
+Ans = Select * from Student order by name asc;
+
+
+Que. Show employees sorted by department and then by salary.
+Ans = Select * from Employee order by department,salary asc;
+
+
+Que. Display students sorted by age in descending order.
+Ans = Select * from Students order by age desc;
+
+
+Que. Show top 5 employees with the highest salary (using ORDER BY with LIMIT).
+Ans = select * from Employee order by salary asc , limit 5;
+
+
+Que. Display employees sorted by hire_date in ascending order.
+Ans = Select * from Employee order by hire_date asc;
+
+
+Que. Show students sorted first by marks (descending) and then by name (ascending).
+Ans = Select * from Students order by marks desc,name asc;
+
+
+Que. Display employees sorted by job_title in ascending order.
+Ans = Select * from Employee order by job_title asc;
