@@ -1,0 +1,40 @@
+ # Group by clause,having clause,order by clause
+
+
+Que. Write a query to display departments with more than 5 employees, ordered by total employees descending.
+Ans = select department, count(*) as total_employee from employee group by department having total_employee > 5 order by total_employee desc;
+
+
+Que. Show job roles where the average salary is above 40,000, ordered by average salary highest first.
+Ans = select job_roles,avg(salary) as average_salary from employee group by job_roles having avg(salary) > 40000 order by average_salary desc;
+
+
+Que. Find classes where the average marks are less than 50, and order the result by average marks ascending.
+Ans = select classes,avg(marks) as average_marks from student group by classes,having avg(marks) < 50 order by average_marks asc;
+
+
+Que. Display customers who spent more than 1,00,000 in total orders, sorted by total amount descending.
+Ans = select Customers,sum(amount) as total_amount from orders group by customers having sum(amount) > 1,00,000 order by total_amount desc;
+
+
+Que. Show subjects where the highest marks are above 90, and order them by highest marks descending.
+Ans = select Subjects, max(marks) as highest_marks from students group by subjects having max(marks) > 90 order by highest_marks desc;
+
+
+Que. Find departments where total salary is greater than 2,00,000, and sort by total salary highest first.
+Ans = select department,sum(salary) as total_salary from employee group by department having sum(salary) > 2,00,000 order by total_salary desc;
+
+
+Que. Display cities where average customer age is more than 35, ordered by average age descending.
+Ans = select cities,avg(age) as average_age from customer group by cities having avg(age) > 35 order by average_age desc;
+
+
+Que.Find product categories having more than 10 products, sorted by product count descending.
+Ans = select categories,count (*) as total_products from product group by categories having count(*) > 10  order by total_products desc;
+
+
+Que. Show years where maximum salary was above 80,000, ordered by max salary descending.
+Ans = select years,max(salary) as max_salary from employee group by years having max(salary) > 80,000 order by max_salary desc;
+  
+ 
+   

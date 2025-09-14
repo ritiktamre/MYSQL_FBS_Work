@@ -1,0 +1,43 @@
+ # Having Clause Question.
+
+ Que =  What is Having Clause.
+ Ans =  Having clause is used By using group by to filter out the result after grouping is         called Having clause.
+
+ Que. Write a query to find departments having more than 5 employees.
+ Ans = select department,count(*) from employee group by department having count(*)> 5;
+
+
+ Que. Show job roles where the average_salary is above 40,000.
+ Ans = select job_roles,avg(Salary) as average salary from employee group by job_roles having average salary > 40000;
+
+
+ Que. Find classes where the average marks are less than 50.
+ Ans = select classes,avg(marks) as average_marks from student group by classes having        average_marks < 50; 
+
+
+Que. Display customers who have spent more than 1,00,000 in total orders.
+Ans = select customer_id,sum(amount) from orders group by customers_id having sum(amount) > 1,00,000;
+
+
+Que. Show subjects where the highest marks are above 90.
+Ans = select subject,max(marks)as higest_marks from student group by subject having higest_marks > 90;
+
+
+Que. Find departments where the total salary is greater than 2,00,000.
+Ans = select department,sum(salary) as total_salary from employee group by department having total_salary > 2,00,000;
+
+
+Que.  Display cities where the average customer age is more than 35.
+Ans = Select cities , avg(age) as customer_age from employee group by cities having customer_age > 35;
+
+
+Que. Find product categories that contain more than 10 products.
+Ans = select categories,count(*) as total_product from products group by categories having total_products > 10;
+
+
+Que. Show years in which the maximum salary of employees was greater than 80,000.
+Ans = select years, max(salary) as maximum_salary from employee group by years having maximum_salary > 80000;
+
+
+Que. Display payment methods that were used in at least 50 orders.
+Ans = select payment,count(*) as total_orders from orders group by payment having total_orders = 50;
