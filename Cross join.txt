@@ -1,0 +1,88 @@
+  # JOINS = joins is used to combine rows and two or more column are based on related column between them.
+
+# joins are the types.
+a. CROSS JOINS, b. INNER JOINS, c.LEFT JOINS, d.RIGHT JOINS, e. SELF JOINS.
+
+
+# Cross joins = Cross joins is used to each and every record from first table and matching records from Each and every record from another table is called cross joins.
+
+syntax =
+
+Select e.e_name , d.d_name from employee e cross join department d;
+
+Que. Write a query to display all possible combinations of employees and departments.
+Ans = select e.e_name , d.d_name from employee e cross join department d.
+
+
+Que. Show all pairs of students and subjects (whether enrolled or not).
+Ans = select s.s_name, sub.sub_name from student s cross join subject sub;
+
+
+Que. Display all products with all suppliers (to see every possible combination).
+Ans = select p.p_name,s.s_name from product p cross join suppliers s.
+
+
+Que. List all employees with all possible project names (regardless of assignment).
+Ans = select e.e_name,pro.pro_name from employee e cross join project p; 
+
+
+Que. Show all teachers with all classrooms (to plan allocation).
+Ans = select t.t_name , c.c_name from teachers t cross join classrooms c.
+
+
+Que. Create a list of every customer and every product (to check potential orders).
+Ans = select c.c_name , p.p_name from customer c cross join product p.
+
+
+Que. Display all possible pairs of branches and cities.
+Ans = select b.b_name, c.c_name from branches b cross join cities c.
+
+
+Que. Generate all combinations of dates and time slots from two tables.
+Ans = select d.d_name , t.t_name from dates d cross join time t;  
+
+
+Que. Show all employees with all possible shifts (morning/evening/night).
+Ans = select e.e_name , s.s_name from employee e cross join shift s;
+
+
+Que. Find all combinations of employees and departments where the department name is 'IT'.
+Ans = select e.e_name,d.d_name from employee e cross join department d where d.d_name = 'IT';
+
+
+Que. Display all combinations of employees and departments, ordered by employee name ascending.
+Ans = select e.e_name,d.d_name from employee e cross join department d order by e.e_name asc;
+
+
+Que. Find all employee-department combinations where the department is 'HR' and order the results by employee salary descending.
+Ans = select e.e_name, d.d_name, e.salary from employee e cross join department d where d.d_name = 'HR' order by e.salary desc;
+
+
+Que. Find the number of employee-department combinations for each department.
+ Ans = select d.d_name,count(e_id) as total_employee from employee e cross join department d group by d.d_name;
+
+
+Que. Find departments where the number of employee-department combinations is greater than 10.
+Ans = select d.d_name , count(e_id) as total_employee from employee e cross join department d group by d.d_name having count(e_id) > 10; 
+
+
+Que. Find the total number of employees in each department where the employee’s salary is greater than 50000.
+
+Ans = select d.d_name,count(e_id) as total_employee from employee e cross join department d where e.salary > 50000 group by d.d_name;
+
+
+Que. Find departments where the total salary of employees (from the CROSS JOIN) exceeds 200000.
+Ans = select d.d_name , sum(e.salary) as total_salary from employee e cross join department d where salary>0 group by d.d_name having total_salary > 20000;
+
+
+Que. Display all employee-department combinations, ordered by department name, and return only the first 5 rows.
+Ans = select e.e_name,d.d_name from employee e cross join department d order by d.d_name asc limit 5;
+
+
+Que. Find all combinations where employee salary > 40000 and department name is 'Sales'.
+Ans = select e.e_name, d.d_name,e.salary from employee e cross join department d where e.salary > 40000 and d.d_name = 'Sales';
+
+
+Que. Display each department and the total number of employees (from the CROSS JOIN), but only include departments with more than 5 employees, and order by total employees descending.
+Ans = select d.d_name,count(e_id) as total_employee from employee e cross join department d group by d.d_name having count(e_id) > 5 order by total_employee desc;
+ 

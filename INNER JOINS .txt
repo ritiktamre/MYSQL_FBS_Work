@@ -1,0 +1,53 @@
+   # INNER JOINS #
+
+  What is Inner Joins = inner joins is used to combine rows from two or more columns ,
+    inner joins to get matching the records from first table to another tables is called as inner  joins.
+
+Que. List all employees in the 'IT' department.
+
+Ans = select e.e_name, d.d_name from employee e inner join department d on e.d_id = d.d_id where d.d_name = 'IT';
+
+
+Que. Display employee names along with their department names, ordered by employee name ascending.
+
+Ans = select e.e_name, d.d_name from employee e inner join department d on e.d_id = d.d_id order by e.e_name asc;
+
+
+Que. Find employees with salary > 50000 in the 'HR' department, ordered by salary descending.
+
+Ans = select e.e_name,d.d_name,e.salary from employee e inner join department d on e.d_id = d.d_id where e.salary > 50000 order by e.salary desc;
+
+
+Que.Find the total salary paid in each department.
+
+Ans = select d.d_name,sum(e.salary) as total_salary from employee e inner join department d on e.d_id = d.d_id group by d.d_name;
+
+
+Que. Display departments where the total salary paid is more than 200000.
+
+Ans = select d.d_name,sum(e.salary) as total_salary from employee e inner join department d on e.d_id = d.d_id group by d.d_name having sum(e.salary) > 2,00,000;
+
+
+Que. Find the number of employees in each department who have salary > 40000.
+
+Ans = select d.d_name,count(e_id) as total_employee from Employee e inner join department d on e.d_id = d.d_id  where e.salary > 40000 group by d.d_name;
+
+
+Que. Find departments where the number of employees with salary > 50000 is more than 5.
+
+Ans = select d.d_name,count(e_id) as total_employee from Employee e inner join department d on e.d_id = d.d_id where salary > 50000 group by d.d_name having count(e_id) > 5;
+
+
+Que. Show employees along with department names, ordered by salary descending, and return only the top 5 highest-paid employees
+
+Ans = select e.e_name,d.d_name,e.salary from employee e inner join department d on e.d_id = d.d_id order by e.salary desc limit 5;
+
+
+Que. Find employees in the 'Sales' department whose salary is between 30000 and 60000.
+
+Ans = select e.e_name,d.d_name,e.salary from employee e inner join department d on e.d_id = d.d_id  where d.d_name = 'Sales' and  e.salary between 30000 and 60000;
+
+
+Que.  Display each department and the average salary of employees, but only include departments where the average salary is above 40000, ordered by average salary descending.
+
+Ans = select d.d_name,avg(e.salary) as average_salary from employee e inner join department d on e.e_id = d.d_id group by d.d_name having avg(e.salary) > 40000 order by average salary desc;
